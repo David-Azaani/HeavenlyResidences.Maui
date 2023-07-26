@@ -27,7 +27,7 @@ public partial class LoginPage : ContentPage
         var response = await ApiService.Login(EnEmail.Text,  EnPassword.Text);
         if (response)
         {
-            Application.Current.MainPage = new HomePage();
+            Application.Current.MainPage = new CustomTabbedPage();
         }
         else
         {

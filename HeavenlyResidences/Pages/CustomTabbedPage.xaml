@@ -3,8 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pages="clr-namespace:HeavenlyResidences.Pages"
              x:Class="HeavenlyResidences.Pages.CustomTabbedPage"
-             >
-    <pages:HomePage Title="Home" IconImageSource="home_icon"/>
+             xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+             android:TabbedPage.ToolbarPlacement="Bottom"
+             SelectedTabColor="Green"
+             UnselectedTabColor="Gray"
+              >
+    <pages:HomePage Title="Home" IconImageSource="home_icon" />
     <pages:BookmarksPage Title="Saved" IconImageSource="bookmark_icon"/>
     <pages:SettingsPage Title="Settings" IconImageSource="settings_icon"/>
 </TabbedPage>
