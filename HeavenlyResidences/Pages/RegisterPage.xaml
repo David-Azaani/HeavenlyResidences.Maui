@@ -25,13 +25,16 @@
                 />
         <HorizontalStackLayout HorizontalOptions="Center">
             <Label Text="Already Have an Account?"
-       FontSize="Medium" 
-       TextColor="#101010"
-       />
+                           FontSize="Medium" 
+                           TextColor="#101010"
+                    />
             <Label Text="Sign In"
-       FontSize="Medium" 
-       TextColor="#1d94ab"
-/>
+                   FontSize="Medium" 
+                   TextColor="#1d94ab"
+            />
+            <HorizontalStackLayout.GestureRecognizers>
+                <TapGestureRecognizer x:Name="TapLogin" Tapped="TapLogin_OnTapped"/>
+            </HorizontalStackLayout.GestureRecognizers>
 
         </HorizontalStackLayout>
     </VerticalStackLayout>

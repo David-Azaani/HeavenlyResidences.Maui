@@ -30,4 +30,9 @@ public partial class RegisterPage : ContentPage
             await DisplayAlert("", "Oops something went wrong", "Ok");
         }
     }
+
+    private async void TapLogin_OnTapped(object sender, TappedEventArgs e)
+    {
+        await Navigation.PushModalAsync(new LoginPage());
+    }
 }
