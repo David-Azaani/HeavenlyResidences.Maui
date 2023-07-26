@@ -16,12 +16,30 @@ public class ApiService
             Password = password,
             Phone = phone
         };
-        var httpClient = new HttpClient();
-        var json = JsonConvert.SerializeObject(register);
-        var content = new StringContent(json, Encoding.UTF8, "application/json");
-        var response = await httpClient.PostAsync(AppSettings.ApiUrl + "api/users/register", content);
-        if (!response.IsSuccessStatusCode) return false;
-        return true;
+        try
+        {
+
+            
+            var httpClient = new HttpClient();
+            var json = JsonConvert.SerializeObject(register);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await httpClient.PostAsync(AppSettings.ApiUrl + "api/users/register", content);
+           
+            if (!response.IsSuccessStatusCode) return false;
+            
+            return true;
+
+        }
+
+        catch (Exception e)
+        {
+            
+
+            return false;
+
+        }
+
+
     }
 
     public static async Task<bool> Login(string email, string password)
@@ -47,7 +65,7 @@ public class ApiService
     public static async Task<List<Category>> GetCategories()
     {
         var httpClient = new HttpClient();
-        httpClient.DefaultRequestHeaders.Authorization = 
+        httpClient.DefaultRequestHeaders.Authorization =
             new AuthenticationHeaderValue("bearer", Preferences.Get("accesstoken", string.Empty));
         var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/categories");
         return JsonConvert.DeserializeObject<List<Category>>(response);

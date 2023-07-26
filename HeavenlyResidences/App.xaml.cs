@@ -1,12 +1,19 @@
-﻿namespace HeavenlyResidences
+﻿using HeavenlyResidences.Pages;
+using HeavenlyResidences.Services;
+
+namespace HeavenlyResidences
 {
     public partial class App : Application
     {
+        
+        
+
         public App()
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            //Choosing Main Page
+            MainPage = new RegisterPage();
         }
     }
 }

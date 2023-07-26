@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HeavenlyResidences.Pages.RegisterPage"
+             Title="RegisterPage">
+    <VerticalStackLayout VerticalOptions="Center" Margin="20,0,20,0" Spacing="20">
+        <Image Source="login" HorizontalOptions="Center"
+               HeightRequest="80"
+               WidthRequest="80"/>
+        <Label Text="Create New Account"
+               HorizontalOptions="Center"
+               TextColor="#101010"
+               FontSize="Large" />
+        <Label 
+            Text="Please enter your information below to create a new account for using the app."
+           TextColor="LightSlateGray"
+            FontSize="Small"
+            HorizontalOptions="Center" />
+        <Entry Placeholder="Full Name" x:Name="EnFullName"/>
+        <Entry Placeholder="Email" x:Name="EnEmail"/>
+        <Entry Placeholder="Phone" x:Name="EnPhone"/>
+        <Entry Placeholder="Password" x:Name="EnPassword" IsPassword="True"/>
+        <Button Text="Register Now" x:Name="BtnRegister" HeightRequest="50" FontSize="Medium" BackgroundColor="#1d94ab"
+                Clicked="BtnRegister_OnClicked"
+                />
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Label Text="Already Have an Account?"
+       FontSize="Medium" 
+       TextColor="#101010"
+       />
+            <Label Text="Sign In"
+       FontSize="Medium" 
+       TextColor="#1d94ab"
+/>
+
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
+    
+    
+  
