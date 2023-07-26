@@ -12,8 +12,19 @@ namespace HeavenlyResidences
         {
             InitializeComponent();
 
+
+            var accessToken =Preferences.Get("accesstoken",String.Empty);
+            if (String.IsNullOrEmpty(accessToken))
+            {
+                MainPage = new LoginPage();
+            }
+            else
+            {
+                  MainPage = new CustomTabbedPage();
+            }
+
             //Choosing Main Page
-            MainPage = new LoginPage();
+            
         }
     }
 }

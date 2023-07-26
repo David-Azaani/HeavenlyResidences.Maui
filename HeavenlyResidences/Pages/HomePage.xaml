@@ -3,10 +3,52 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HeavenlyResidences.Pages.HomePage"
             >
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <Grid Margin="20" RowSpacing="20">
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <VerticalStackLayout Grid.Row="0" Spacing="5">
+                <Label x:Name="LblUserName"
+                           FontSize="Large"
+                           Text="Hi D!"/>
+                <Label 
+                   FontSize="Medium"
+                   Text="Find your best place to stay!"
+                   TextColor="Gray"/>
+
+            </VerticalStackLayout>
+
+            <Frame Grid.Row="1" Padding="15">
+
+                <HorizontalStackLayout>
+                    <Image Source="search_icon" Aspect="AspectFit" HeightRequest="25" WidthRequest="25"></Image>
+                    <Label Text="Search..." VerticalOptions="Center"></Label>
+                </HorizontalStackLayout>
+            </Frame>
+
+            <VerticalStackLayout Grid.Row="2" Spacing="20">
+                <Label Text="Categories" FontSize="Large"/>
+                <CollectionView x:Name="CvCategories" HeightRequest="50"></CollectionView>
+            </VerticalStackLayout>
+
+
+            <VerticalStackLayout Grid.Row="3" Spacing="20" >
+
+                <Label Text="Top Picks" FontSize="Large"/>
+
+                <CollectionView x:Name="CvTopPicks" HeightRequest="350"></CollectionView>
+
+            </VerticalStackLayout>
+
+
+        </Grid>
+
+    </ScrollView>
 </ContentPage>
