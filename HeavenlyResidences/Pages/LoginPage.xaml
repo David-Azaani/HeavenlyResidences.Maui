@@ -3,10 +3,38 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HeavenlyResidences.Pages.LoginPage"
              Title="LoginPage">
-    <VerticalStackLayout>
+    <VerticalStackLayout VerticalOptions="Center" Margin="20,0,20,0" Spacing="20">
+        <Image Source="login" HorizontalOptions="Center"
+               HeightRequest="80"
+               WidthRequest="80"/>
+        <Label Text="Welcome Back!"
+               HorizontalOptions="Center"
+               TextColor="#101010"
+               FontSize="Large" />
         <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
+            Text="Please enter your information below to login into your account for using the app."
+           TextColor="LightSlateGray"
+            FontSize="Small"
             HorizontalOptions="Center" />
+       
+        <Entry Placeholder="Email" x:Name="EnEmail"/>
+       <Entry Placeholder="Password" x:Name="EnPassword" IsPassword="True"/>
+        <Button Text="Sign In" x:Name="BtnLogin" HeightRequest="50" FontSize="Medium" BackgroundColor="#1d94ab"
+            Clicked="BtnLogin_OnClicked"    
+                />
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Label Text="Not a member?"
+                           FontSize="Medium" 
+                           TextColor="#101010"
+                    />
+            <Label Text="Join Now"
+                   FontSize="Medium" 
+                   TextColor="#1d94ab"
+            />
+            <HorizontalStackLayout.GestureRecognizers>
+                <TapGestureRecognizer x:Name="JoinNow" Tapped="JoinNow_OnTapped"/>
+            </HorizontalStackLayout.GestureRecognizers>
+
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

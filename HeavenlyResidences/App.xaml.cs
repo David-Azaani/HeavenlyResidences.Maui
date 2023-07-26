@@ -13,7 +13,7 @@ namespace HeavenlyResidences
             InitializeComponent();
 
             //Choosing Main Page
-            MainPage = new RegisterPage();
+            MainPage = new LoginPage();
         }
     }
 }

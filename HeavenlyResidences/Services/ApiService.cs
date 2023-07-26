@@ -19,21 +19,21 @@ public class ApiService
         try
         {
 
-            
+
             var httpClient = new HttpClient();
             var json = JsonConvert.SerializeObject(register);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             var response = await httpClient.PostAsync(AppSettings.ApiUrl + "api/users/register", content);
-           
+
             if (!response.IsSuccessStatusCode) return false;
-            
+
             return true;
 
         }
 
         catch (Exception e)
         {
-            
+
 
             return false;
 
@@ -49,18 +49,25 @@ public class ApiService
             Email = email,
             Password = password
         };
+        try
+        {
+            var httpClient = new HttpClient();
+            var json = JsonConvert.SerializeObject(login);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await httpClient.PostAsync(AppSettings.ApiUrl + "api/users/login", content);
+            if (!response.IsSuccessStatusCode) return false;
+            var jsonResult = await response.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<Token>(jsonResult);
+            Preferences.Set("accesstoken", result.AccessToken);
+            Preferences.Set("userid", result.UserId);
+            Preferences.Set("username", result.UserName);
+            return true;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
 
-        var httpClient = new HttpClient();
-        var json = JsonConvert.SerializeObject(login);
-        var content = new StringContent(json, Encoding.UTF8, "application/json");
-        var response = await httpClient.PostAsync(AppSettings.ApiUrl + "api/users/login", content);
-        if (!response.IsSuccessStatusCode) return false;
-        var jsonResult = await response.Content.ReadAsStringAsync();
-        var result = JsonConvert.DeserializeObject<Token>(jsonResult);
-        Preferences.Set("accesstoken", result.AccessToken);
-        Preferences.Set("userid", result.UserId);
-        Preferences.Set("username", result.UserName);
-        return true;
     }
     public static async Task<List<Category>> GetCategories()
     {

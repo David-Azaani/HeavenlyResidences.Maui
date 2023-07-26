@@ -17,13 +17,14 @@ public partial class RegisterPage : ContentPage
         {
             await DisplayAlert("", "insert valid data", "Ok");
 
-            await Navigation.PushModalAsync(new LoginPage());
+            
         }
 
         var response = await ApiService.RegisterUser(EnFullName.Text, EnEmail.Text, EnPassword.Text, EnPhone.Text);
         if (response)
         {
             await DisplayAlert("", "Your account has been created", "Ok");
+            await Navigation.PushModalAsync(new LoginPage());
         }
         else
         {

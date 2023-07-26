@@ -4,7 +4,7 @@
              x:Class="HeavenlyResidences.Pages.RegisterPage"
              Title="RegisterPage">
     <VerticalStackLayout VerticalOptions="Center" Margin="20,0,20,0" Spacing="20">
-        <Image Source="login" HorizontalOptions="Center"
+        <Image Source="register" HorizontalOptions="Center"
                HeightRequest="80"
                WidthRequest="80"/>
         <Label Text="Create New Account"
