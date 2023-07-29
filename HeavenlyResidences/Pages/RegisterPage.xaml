@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HeavenlyResidences.Pages.RegisterPage"
-             Title="RegisterPage">
+             Title="RegisterPage"
+             NavigationPage.HasNavigationBar="False">
     <VerticalStackLayout VerticalOptions="Center" Margin="20,0,20,0" Spacing="20">
         <Image Source="register" HorizontalOptions="Center"
                HeightRequest="80"

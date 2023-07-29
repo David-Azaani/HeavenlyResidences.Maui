@@ -8,7 +8,13 @@
              SelectedTabColor="Green"
              UnselectedTabColor="Gray"
               >
-    <pages:HomePage Title="Home" IconImageSource="home_icon" />
+
+    <NavigationPage Title="Home" IconImageSource="home_icon" BarBackgroundColor="#1d94ab" BarTextColor="White">
+        <x:Arguments>
+            <pages:HomePage  />
+        </x:Arguments>
+    </NavigationPage>
+    <!--<pages:HomePage Title="Home" IconImageSource="home_icon" />-->
     <pages:BookmarksPage Title="Saved" IconImageSource="bookmark_icon"/>
     <pages:SettingsPage Title="Settings" IconImageSource="settings_icon"/>
 </TabbedPage>

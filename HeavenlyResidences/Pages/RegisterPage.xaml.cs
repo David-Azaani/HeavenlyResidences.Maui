@@ -25,6 +25,7 @@ public partial class RegisterPage : ContentPage
         {
             await DisplayAlert("", "Your account has been created", "Ok");
             await Navigation.PushModalAsync(new LoginPage());
+            //await Navigation.PushAsync(new LoginPage());
         }
         else
         {
@@ -34,6 +35,7 @@ public partial class RegisterPage : ContentPage
 
     private async void TapLogin_OnTapped(object sender, TappedEventArgs e)
     {
-        await Navigation.PushModalAsync(new LoginPage());
+        //await Navigation.PushModalAsync(new LoginPage());
+        await Navigation.PushAsync(new LoginPage());
     }
 }

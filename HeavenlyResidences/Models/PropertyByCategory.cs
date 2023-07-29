@@ -20,8 +20,9 @@ public class PropertyByCategory
 
     [JsonProperty("imageUrl")]
     public string ImageUrl { get; set; }
+    public string FullImageUrl => AppSettings.ApiUrl + ImageUrl;
 
-   [JsonProperty("price")]
+    [JsonProperty("price")]
     public int Price { get; set; }
 
     [JsonProperty("isTrending")]

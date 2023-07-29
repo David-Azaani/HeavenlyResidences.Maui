@@ -1,39 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HeavenlyResidences.Pages.BookmarksPage"
-              xmlns:model="clr-namespace:HeavenlyResidences.Models"
-               NavigationPage.HasNavigationBar="False"
-             >
+             x:Class="HeavenlyResidences.Pages.PropertiesListPage"
              
-    
-
-  <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Label Grid.Row="0"
-               Text="Saved"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"
-               FontSize="Large"/>
-
-         <CollectionView x:Name="CvProperties"
+            xmlns:model="clr-namespace:HeavenlyResidences.Models">
+ <CollectionView x:Name="CvProperties"
                    Margin="10"
-                   Grid.Row="1"
                    SelectionMode="Single"
                    SelectionChanged="CvProperties_OnSelectionChanged">
         <CollectionView.ItemsLayout>
         <LinearItemsLayout ItemSpacing="20" Orientation="Vertical"/>
         </CollectionView.ItemsLayout>
         <CollectionView.ItemTemplate>
-            <DataTemplate x:DataType="model:BookmarkList">
+            <DataTemplate x:DataType="model:PropertyByCategory">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="4*"/>
                         <ColumnDefinition Width="6*"/>
                     </Grid.ColumnDefinitions>
+                    <!--image-->
                     <Frame Grid.Column="0"
                            CornerRadius="10"
                            Padding="0"
@@ -42,11 +27,12 @@
                                Aspect="Fill"
                                Source="{Binding FullImageUrl}"/>
                     </Frame>
-                    <StackLayout Grid.Column="1"
+                    <!--info-->
+                    <StackLayout Grid.Column="1" 
                                  Padding="15"
                                  Spacing="10">
                         <Label FontSize="Medium"
-                               Text="{Binding Price  ,StringFormat='${0:#,0.#0}' }"/>
+                               Text="{Binding Price, StringFormat='${0:#,0.#0}' }"/>
                         <Label FontSize="Small"
                                Text="{Binding Name}"/>
                         <Label FontSize="Small"
@@ -56,9 +42,4 @@
             </DataTemplate>
         </CollectionView.ItemTemplate>
 </CollectionView>
-
-    </Grid>
-
-
-
 </ContentPage>
